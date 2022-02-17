@@ -61,6 +61,15 @@ router.patch("/:id", getJobByID, async (req, res) => {
   }
 });
 
+router.delete("/:id", getJobByID, async (req, res) => {
+  try {
+    await res.job.remove();
+    res.json({ message: "job deleted" });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
+
 // middleware function to select job by id
 
 async function getJobByID(req, res, next) {
@@ -68,6 +77,9 @@ async function getJobByID(req, res, next) {
 
   try {
     correctJob = await Job.findById(req.params.id);
+    if (!correctJob) {
+      return res.status(404).json({ message: "job not found" });
+    }
   } catch (err) {
     return res.status(500).json({ message: err.message });
   }
