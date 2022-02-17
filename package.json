@@ -5,7 +5,5 @@
   "type": "module",
   "scripts": {},
   "dependencies": {
-    "dotenv": "^16.0.0",
-    "mongodb": "^4.3.1"
   }
 }
