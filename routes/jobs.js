@@ -15,6 +15,15 @@ router.post("/", async (req, res) => {
     company: req.body.company,
     jobStatus: req.body.jobStatus,
   });
+
+  if (req.body.minSalary) {
+    job.minSalary = req.body.minSalary;
+  }
+
+  if (req.body.maxSalary) {
+    job.maxSalary = req.body.maxSalary;
+  }
+
   try {
     const newJob = await job.save();
     res.status(201).json(newJob);
@@ -22,4 +31,5 @@ router.post("/", async (req, res) => {
     res.status(400).json({ message: err.message });
   }
 });
+
 export default router;
