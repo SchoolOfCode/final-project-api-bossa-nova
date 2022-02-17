@@ -36,6 +36,31 @@ router.post("/", async (req, res) => {
   }
 });
 
+router.patch("/:id", getJobByID, async (req, res) => {
+  if (req.body.jobTitle) {
+    res.job.jobTitle = req.body.jobTitle;
+  }
+  if (req.body.company) {
+    res.job.company = req.body.company;
+  }
+  if (req.body.jobStatus) {
+    res.job.jobStatus = req.body.jobStatus;
+  }
+  if (req.body.minSalary) {
+    res.job.minSalary = req.body.minSalary;
+  }
+  if (req.body.maxSalary) {
+    res.job.maxSalary = req.body.maxSalary;
+  }
+
+  try {
+    const updatedJob = await res.job.save();
+    res.json(updatedJob);
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  }
+});
+
 // middleware function to select job by id
 
 async function getJobByID(req, res, next) {
