@@ -1,10 +1,10 @@
 import express from "express";
-import Job from "../models/jobs.js";
-
+import { getAllJobs } from "../utils/jobs.js";
+import { getJobByID } from "../middleware/jobs.js";
 const router = express.Router();
 
 router.get("/", async (req, res) => {
-  const jobs = await Job.find();
+  const jobs = await getAllJobs();
   res.json(jobs);
 });
 
@@ -69,23 +69,5 @@ router.delete("/:id", getJobByID, async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 });
-
-// middleware function to select job by id
-
-async function getJobByID(req, res, next) {
-  let correctJob;
-
-  try {
-    correctJob = await Job.findById(req.params.id);
-    if (!correctJob) {
-      return res.status(404).json({ message: "job not found" });
-    }
-  } catch (err) {
-    return res.status(500).json({ message: err.message });
-  }
-
-  res.job = correctJob;
-  next();
-}
 
 export default router;
