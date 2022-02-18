@@ -11,13 +11,41 @@ export async function createJob(req) {
     company: req.body.company,
     jobStatus: req.body.jobStatus,
   });
-
   if (req.body.minSalary) {
     job.minSalary = req.body.minSalary;
   }
-
   if (req.body.maxSalary) {
     job.maxSalary = req.body.maxSalary;
+  }
+  if (req.body.techStack) {
+    job.techStack = req.body.techStack;
+  }
+  if (req.body.contact) {
+    job.contact = req.body.contact;
+  }
+  if (req.body.dataAdded) {
+    job.dataAdded = req.body.dataAdded;
+  }
+  if (req.body.applicationDeadline) {
+    job.applicationDeadline = req.body.applicationDeadline;
+  }
+  if (req.body.interviewDate) {
+    job.interviewDate = req.body.interviewDate;
+  }
+  if (req.body.offerDate) {
+    job.offerDate = req.body.offerDate;
+  }
+  if (req.body.urlLinks) {
+    job.urlLinks = req.body.urlLinks;
+  }
+  if (req.body.location) {
+    job.location = req.body.location;
+  }
+  if (req.body.jobDescription) {
+    job.jobDescription = req.body.jobDescription;
+  }
+  if (req.body.notes) {
+    job.notes = req.body.notes;
   }
 
   return await job.save();
@@ -38,6 +66,36 @@ export async function updateJob(updates, job) {
   }
   if (updates.maxSalary) {
     job.maxSalary = updates.maxSalary;
+  }
+  if (updates.techStack) {
+    job.techStack = updates.techStack;
+  }
+  if (updates.contact) {
+    job.contact = updates.contact;
+  }
+  if (updates.dataAdded) {
+    job.dataAdded = updates.dataAdded;
+  }
+  if (updates.applicationDeadline) {
+    job.applicationDeadline = updates.applicationDeadline;
+  }
+  if (updates.interviewDate) {
+    job.interviewDate = updates.interviewDate;
+  }
+  if (updates.offerDate) {
+    job.offerDate = updates.offerDate;
+  }
+  if (updates.urlLinks) {
+    job.urlLinks = updates.urlLinks;
+  }
+  if (updates.location) {
+    job.location = updates.location;
+  }
+  if (updates.jobDescription) {
+    job.jobDescription = updates.jobDescription;
+  }
+  if (updates.notes) {
+    job.notes = updates.notes;
   }
   return await job.save();
 }
