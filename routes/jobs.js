@@ -1,5 +1,5 @@
 import express from "express";
-import { getAllJobs, createJob } from "../utils/jobs.js";
+import { getAllJobs, createJob, updateJob, deleteJob } from "../utils/jobs.js";
 import { getJobByID } from "../middleware/jobs.js";
 const router = express.Router();
 
@@ -22,24 +22,8 @@ router.post("/", async (req, res) => {
 });
 
 router.patch("/:id", getJobByID, async (req, res) => {
-  if (req.body.jobTitle) {
-    res.job.jobTitle = req.body.jobTitle;
-  }
-  if (req.body.company) {
-    res.job.company = req.body.company;
-  }
-  if (req.body.jobStatus) {
-    res.job.jobStatus = req.body.jobStatus;
-  }
-  if (req.body.minSalary) {
-    res.job.minSalary = req.body.minSalary;
-  }
-  if (req.body.maxSalary) {
-    res.job.maxSalary = req.body.maxSalary;
-  }
-
   try {
-    const updatedJob = await res.job.save();
+    const updatedJob = await updateJob(req.body, res.job);
     res.json(updatedJob);
   } catch (err) {
     res.status(400).json({ message: err.message });
@@ -48,7 +32,7 @@ router.patch("/:id", getJobByID, async (req, res) => {
 
 router.delete("/:id", getJobByID, async (req, res) => {
   try {
-    await res.job.remove();
+    await deleteJob(res.job);
     res.json({ message: "job deleted" });
   } catch (err) {
     res.status(500).json({ message: err.message });

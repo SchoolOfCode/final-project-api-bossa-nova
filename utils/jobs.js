@@ -22,3 +22,26 @@ export async function createJob(req) {
 
   return await job.save();
 }
+
+export async function updateJob(updates, job) {
+  if (updates.jobTitle) {
+    job.jobTitle = updates.jobTitle;
+  }
+  if (updates.company) {
+    job.company = updates.company;
+  }
+  if (updates.jobStatus) {
+    job.jobStatus = updates.jobStatus;
+  }
+  if (updates.minSalary) {
+    job.minSalary = updates.minSalary;
+  }
+  if (updates.maxSalary) {
+    job.maxSalary = updates.maxSalary;
+  }
+  return await job.save();
+}
+
+export async function deleteJob(job) {
+  return await job.remove();
+}
