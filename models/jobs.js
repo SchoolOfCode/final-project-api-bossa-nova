@@ -23,6 +23,36 @@ const jobSchema = new mongoose.Schema({
   maxSalary: {
     type: Number,
   },
+  techStack: {
+    type: String,
+  },
+  contact: {
+    type: String,
+  },
+  dataAdded: {
+    type: String,
+  },
+  applicationDeadline: {
+    type: String,
+  },
+  interviewDate: {
+    type: String,
+  },
+  offerDate: {
+    type: String,
+  },
+  urlLinks: {
+    type: String,
+  },
+  location: {
+    type: String,
+  },
+  jobDescription: {
+    type: String,
+  },
+  notes: {
+    type: String,
+  },
 });
 
 export default mongoose.model("Job", jobSchema);
