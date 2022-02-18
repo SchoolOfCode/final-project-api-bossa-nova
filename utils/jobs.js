@@ -23,8 +23,8 @@ export async function createJob(req) {
   if (req.body.contact) {
     job.contact = req.body.contact;
   }
-  if (req.body.dataAdded) {
-    job.dataAdded = req.body.dataAdded;
+  if (req.body.dateAdded) {
+    job.dateAdded = req.body.dateAdded;
   }
   if (req.body.applicationDeadline) {
     job.applicationDeadline = req.body.applicationDeadline;
@@ -73,8 +73,8 @@ export async function updateJob(updates, job) {
   if (updates.contact) {
     job.contact = updates.contact;
   }
-  if (updates.dataAdded) {
-    job.dataAdded = updates.dataAdded;
+  if (updates.dateAdded) {
+    job.dateAdded = updates.dateAdded;
   }
   if (updates.applicationDeadline) {
     job.applicationDeadline = updates.applicationDeadline;
