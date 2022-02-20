@@ -21,6 +21,9 @@ export async function updateResource(updates, resource) {
   if (updates.link) {
     resource.link = updates.link;
   }
+  if (updates.category) {
+    resource.category = updates.category;
+  }
 
   return await resource.save();
 }
