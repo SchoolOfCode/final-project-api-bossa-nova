@@ -8,6 +8,7 @@ export async function createResource(req) {
   const resource = new Resource({
     name: req.body.name,
     link: req.body.link,
+    category: req.body.category,
   });
 
   return await resource.save();
@@ -18,7 +19,7 @@ export async function updateResource(updates, resource) {
     resource.name = updates.name;
   }
   if (updates.link) {
-    resource.link = updates.link
+    resource.link = updates.link;
   }
 
   return await resource.save();

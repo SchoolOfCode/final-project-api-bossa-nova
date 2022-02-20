@@ -9,7 +9,11 @@ const resourceSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  category: [
+    {
+      type: String,
+    },
+  ],
 });
-
 
 export default mongoose.model("Resource", resourceSchema);
