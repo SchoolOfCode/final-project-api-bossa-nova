@@ -12,6 +12,7 @@ const resourceSchema = new mongoose.Schema({
   category: [
     {
       type: String,
+      required: true,
     },
   ],
 });
