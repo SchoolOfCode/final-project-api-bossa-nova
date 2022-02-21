@@ -29,17 +29,17 @@ const jobSchema = new mongoose.Schema({
   contact: {
     type: String,
   },
-  dataAdded: {
-    type: String,
+  dateAdded: {
+    type: Date,
   },
   applicationDeadline: {
-    type: String,
+    type: Date,
   },
   interviewDate: {
-    type: String,
+    type: Date,
   },
   offerDate: {
-    type: String,
+    type: Date,
   },
   urlLinks: {
     type: String,
