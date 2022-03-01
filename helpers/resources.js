@@ -15,5 +15,7 @@ export async function getResourcesByID(id) {
 
 //A.findOneAndUpdate(conditions, update)
 export async function updateResource(id, updatedResource) {
-  return await Resource.findOneAndUpdate({ _id: id }, updatedResource);
+  await Resource.findOneAndUpdate({ _id: id }, updatedResource);
+  const doc = Resource.findOne({ _id: id });
+  return doc;
 }
