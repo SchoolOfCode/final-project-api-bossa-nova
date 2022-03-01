@@ -5,12 +5,6 @@ const resourceSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  category: [
-    {
-      type: String,
-      required: true,
-    },
-  ],
 });
 
 resourceSchema.path("link").validate((val) => {
