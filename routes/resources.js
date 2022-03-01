@@ -4,12 +4,17 @@ import {
   getAllResources,
   getResourcesByID,
   updateResource,
+  deleteResourceByID,
 } from "../helpers/resources.js";
 const router = express.Router();
 
 router.get("/", async (req, res) => {
-  const payload = await getAllResources();
-  res.status(200).json({ success: true, payload: payload });
+  try {
+    const payload = await getAllResources();
+    res.status(200).json({ success: true, payload: payload });
+  } catch (err) {
+    res.status(500).json({ success: false, message: err.message });
+  }
 });
 
 router.post("/", async (req, res) => {
@@ -25,7 +30,6 @@ router.put("/:id", async (req, res) => {
   const id = req.params.id;
   const updates = req.body;
   const [resource] = await getResourcesByID(id);
-
   if (resource) {
     try {
       const payload = await updateResource(id, updates);
@@ -40,4 +44,20 @@ router.put("/:id", async (req, res) => {
   }
 });
 
+router.delete("/:id", async (req, res) => {
+  const id = req.params.id;
+  const [resource] = await getResourcesByID(id);
+  if (resource) {
+    try {
+      const payload = await deleteResourceByID(id);
+      res.status(200).json({ success: true, payload: payload });
+    } catch (err) {
+      res.status(500).json({ success: false, message: err.message });
+    }
+  } else {
+    res
+      .status(404)
+      .json({ success: false, message: `No Resource found with id ${id}` });
+  }
+});
 export default router;

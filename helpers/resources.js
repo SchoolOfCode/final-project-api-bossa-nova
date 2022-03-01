@@ -19,3 +19,7 @@ export async function updateResource(id, updatedResource) {
   const doc = Resource.findOne({ _id: id });
   return doc;
 }
+
+export async function deleteResourceByID(id) {
+  return await Resource.deleteOne({_id: id})
+}
