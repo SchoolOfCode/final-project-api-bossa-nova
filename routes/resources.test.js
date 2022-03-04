@@ -1,17 +1,15 @@
-import express from "express";
+import app from "../app.js";
 import request from "supertest";
-
-const app = express();
-
-app.get("/test", function (req, res) {
-  res.status(200).json({ message: "pass" });
-});
+import { db } from "../app.js";
 
 describe("GET /test", function () {
   it("responds with json", async function () {
     const response = await request(app)
-      .get("/test")
+      .get("/api/resources")
       .set("Accept", "application/json");
+    console.log(response.body);
     expect(response.status).toEqual(200);
   });
 });
+
+// afterAll(() => db.close());
