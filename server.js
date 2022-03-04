@@ -21,3 +21,5 @@ app.use(cors());
 app.use("/api/user", usersRouter);
 app.use("/api/resources", resourcesRouter);
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+
+export default app;
