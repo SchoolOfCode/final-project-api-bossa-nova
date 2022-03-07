@@ -24,6 +24,18 @@ describe("POST /user", function () {
     expect(response.body.success).toBeTruthy();
   });
 
+  it("POST api/user - good request two", async function () {
+    const response = await request(app).post("/api/user/test_user").send({
+      jobTitle: "Senior Dev",
+      company: "School Of Code",
+      jobStatus: "Applied",
+      minSalary: 23000,
+      maxSalary: 38000,
+    });
+    expect(response.status).toEqual(201);
+    expect(response.body.success).toBeTruthy();
+  });
+
   it("POST api/user - bad resquest", async function () {
     const response = await request(app).post("/api/user/auth0_user").send({
       jobTitle: "Junior Dev",
@@ -107,5 +119,24 @@ describe("PUT api/user/:user_id/:job_id - update one job for one user", function
       });
     expect(response.status).toEqual(400);
     expect(response.body.success).toBeFalsy();
+  });
+});
+
+describe("DELETE api/user/:user_id/:job_id", function () {
+  it("DELETE api/user/:user_id/:job_id delete on job for one user", async function () {
+    const user = await getUsersByID("test_user");
+    const jobs = user[0].jobs;
+    const job_id = String(jobs[jobs.length - 1]._id);
+    const response = await request(app).delete(`/api/user/test_user/${job_id}`);
+    expect(response.status).toEqual(200);
+    expect(response.body.success).toBeTruthy();
+  });
+});
+
+describe("DELETE api/user/:user_id", function () {
+  it("DELETE api/user/:user_id delete one user", async function () {
+    const response = await request(app).delete(`/api/user/test_user`);
+    expect(response.status).toEqual(200);
+    expect(response.body.success).toBeTruthy();
   });
 });
