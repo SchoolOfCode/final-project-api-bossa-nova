@@ -57,4 +57,14 @@ describe("UPDATE resources by id", function () {
     expect(typeof response.body.payload).toBe("object");
   });
 });
+
+describe("DELETE resources by id", function () {
+  it("DELETE api/resources/:id - resource found", async function () {
+    const resources = await getAllResources();
+    const id = String(resources[resources.length - 1]._id);
+    const response = await request(app).delete(`/api/resources/${id}`);
+    expect(response.status).toEqual(200);
+    expect(response.body.success).toBeTruthy();
+  });
+});
 // afterAll(() => db.close());
