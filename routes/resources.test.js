@@ -1,5 +1,6 @@
 import app from "../app.js";
 import request from "supertest";
+import { getAllResources } from "../helpers/resources.js";
 // import { db } from "../app.js";
 
 describe("GET /resources", function () {
@@ -32,4 +33,28 @@ describe("POST /resources", function () {
   });
 });
 
+describe("GET resources by id", function () {
+  it("GET api/resources/:id - resource found", async function () {
+    const resources = await getAllResources();
+    const id = String(resources[resources.length - 1]._id);
+    const response = await request(app).get(`/api/resources/${id}`);
+    expect(response.status).toEqual(200);
+    expect(response.body.success).toBeTruthy();
+    expect(Array.isArray(response.body.payload)).toBeTruthy();
+    expect(response.body.payload.length).toBe(1);
+  });
+});
+
+describe("UPDATE resources by id", function () {
+  it("PUT api/resources/:id - good request", async function () {
+    const resources = await getAllResources();
+    const id = String(resources[resources.length - 1]._id);
+    const response = await request(app)
+      .put(`/api/resources/${id}`)
+      .send({ link: "https://www.google.com" });
+    expect(response.status).toEqual(200);
+    expect(response.body.success).toBeTruthy();
+    expect(typeof response.body.payload).toBe("object");
+  });
+});
 // afterAll(() => db.close());
