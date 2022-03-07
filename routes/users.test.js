@@ -22,4 +22,15 @@ describe("POST /user", function () {
     expect(response.status).toEqual(201);
     expect(response.body.success).toBeTruthy();
   });
+
+  it("POST api/user - bad resquest", async function () {
+    const response = await request(app).post("/api/user/auth0_user").send({
+      jobTitle: "Junior Dev",
+      company: "Google",
+      jobStatus: 123,
+      maxSalary: "30000",
+    });
+    expect(response.status).toEqual(400);
+    expect(response.body.success).toBeFalsy();
+  });
 });
