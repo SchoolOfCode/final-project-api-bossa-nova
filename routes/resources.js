@@ -17,6 +17,18 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.get("/:id", async (req, res) => {
+  const id = req.params.id;
+  const payload = await getResourcesByID(id);
+  if (payload.length > 0) {
+    res.status(200).json({ success: true, payload: payload });
+  } else {
+    res
+      .status(404)
+      .json({ success: true, message: `No resource found with id ${id}` });
+  }
+});
+
 router.post("/", async (req, res) => {
   try {
     const payload = await createResource(req.body);
