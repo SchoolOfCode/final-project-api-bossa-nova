@@ -1,5 +1,9 @@
 # Bossa Nova Job Tracker
 
+// general description of project
+// link to front-end
+// live site link
+
 ## Table of Contents
 
 - [How to Install and Run Project](#how-to-install-and-run)
@@ -7,6 +11,7 @@
 - [Project Description](#project-description)
 - [Development Process](#development-process)
 - [Contributing Guidelines](#contributing-guidelines)
+- [License](#license)
 - [Authors info](#authors-info)
 
 ## How to Install and Run
@@ -63,7 +68,8 @@ You will see the results in the terminal.
 
 ## Project Description
 
-## Front/Back End Description
+// specific back-end decription
+// challenges
 
 ## Development Process
 
@@ -85,5 +91,7 @@ We used pair-programming heavily thoughout the whole project.
 - Mongoose
 
 ## Contributing Guidelines
+
+## License
 
 ## Authors info
