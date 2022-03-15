@@ -105,15 +105,48 @@ Main and Dev branch are protected by enforced code reviews (you need 1 approval 
 
 We used pair-programming heavily thoughout the whole project.
 
-## Contributing Guidelines
-
 ## License
 
 MIT
 
 ## Authors info
 
+- Adriana Nobre Lawrence
+
+  - [Portfolio](https://nobre-lawrence.vercel.app/projects)
+  - [Github](https://github.com/drinobre)
+  - [Linkedin](https://www.linkedin.com/in/adriana-nobre-lawrence/)
+  <hr>
+
+- Ben Holloway
+
+  - [Linkedin](https://www.linkedin.com/in/ben-holloway-3388a6224/)
+  - [Github](https://github.com/benmhcode)
+  <hr>
+
+- Chirag Mehta
+
+  - [Linkedin](https://www.linkedin.com/in/chiragmehtauk/)
+  - [Github](https://github.com/chirazzzz)
+  - [Portfolio](https://chirag-designs-f2wb3.ondigitalocean.app/)
+  <hr>
+
+- Cintia Siqueira
+
+  - [Portfolio](https://cisiq.dev)
+  - [Github](https://github.com/ciisiq)
+  - [Linkedin](https://www.linkedin.com/in/cintia-siqueira)
+  <hr>
+
+- Kattana Luz
+
+  - [Portfolio](https://kattanaluz.github.io/portfolio1/)
+  - [Github](https://github.com/kattanaluz)
+  - [Linkedin](https://www.linkedin.com/in/kattana-luz/)
+  <hr>
+
 - Valerio Cipolla
-  - Portfolio: https://valeriocipolla.netlify.app/
-  - GitHub: https://github.com/ValerioCipolla
-  - LinkedIn: https://www.linkedin.com/in/valerio-cipolla-software-engineer/
+  - [Portfolio](https://valeriocipolla.netlify.app/)
+  - [GitHub](https://github.com/ValerioCipolla)
+  - [LinkedIn](https://www.linkedin.com/in/valerio-cipolla-software-engineer/)
+  <hr>
